@@ -1,0 +1,21 @@
+[
+    {
+      "language": "Ukrainian",
+      "countries": [],
+      "difficulty": "Medium",
+      "isPopular": true
+    },
+    {
+      "language": "Japanese",
+      "countries": [],
+      "difficulty": "Hard",
+      "isPopular": true
+    },
+    {
+      "language": "Polish",
+      "countries": [],
+      "difficulty": "Medium",
+      "isPopular": false
+    }
+  ]
+  
