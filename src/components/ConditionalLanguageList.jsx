@@ -1,17 +1,21 @@
 import React from "react";
+import { useLanguageStore } from "../store/useLanguageStore";
 import LanguageCard from "./LanguageCard";
 
-const ConditionalLanguageList = ({ languages, showPopularOnly }) => {
-  if (!languages || languages.length === 0)
-    return <p>No languages available.</p>;
+const ConditionalLanguageList = ({ showPopularOnly }) => {
+  const { languages } = useLanguageStore();
+
+  const filtered = showPopularOnly
+    ? languages.filter((lang) => lang.isPopular)
+    : languages;
+
+  if (filtered.length === 0) return <p>Мов не знайдено</p>;
 
   return (
     <div>
-      <h2>Language List</h2>
-      {languages.map((lang) => {
-        if (showPopularOnly && !lang.isPopular) return null;
-        return <LanguageCard key={lang.language} {...lang} />;
-      })}
+      {filtered.map((lang) => (
+        <LanguageCard key={lang.language} {...lang} />
+      ))}
     </div>
   );
 };
